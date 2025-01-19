@@ -1,57 +1,65 @@
-Introduction
-============
+Invoice Billing System (Indian GST Compliant)
+Overview
+The Invoice Billing System is a comprehensive solution tailored for businesses adhering to Indian GST norms. Built using the AdminLTE template, this system streamlines the management of invoices, quotations, clients, suppliers, and reports. It includes user-friendly features for dynamic UI customization, ensuring a seamless and personalized experience.
 
-![Bower version](https://img.shields.io/bower/v/adminlte.svg)
-[![npm version](https://img.shields.io/npm/v/admin-lte.svg)](https://www.npmjs.com/package/admin-lte)
-[![Packagist](https://img.shields.io/packagist/v/almasaeed2010/adminlte.svg)](https://packagist.org/packages/almasaeed2010/adminlte)
-[![CDNJS](https://img.shields.io/cdnjs/v/admin-lte.svg)](https://cdnjs.com/libraries/admin-lte)
+Features
+Invoice Management
+Create and Manage Invoices: Generate GST-compliant invoices effortlessly.
+Proforma Invoices: Issue preliminary invoices with ease.
+Quotation Management
+Standard Quotations: Draft and manage detailed quotations for potential clients.
+Quick Quotations: Generate simplified quotations on the go.
+Purchase Management
+Manage purchase invoices with accurate GST calculations.
+Track supplier data and purchase histories.
+Client and Supplier Management
+Add, edit, and manage client and supplier records efficiently.
+GST Handling:
+Automatically applies IGST for clients and suppliers located out of state.
+Automatically applies CGST/SGST for clients and suppliers located within the same state.
+Reports
+Generate detailed sales and purchase item reports.
+Export reports for financial analysis.
+UI Customization
+Personalized user interface with dynamic themes and layout adjustments.
+Technology Stack
+Front-End: AdminLTE Template
+Back-End: PHP (Core PHP)
+Database: MySQL
+JavaScript Libraries: jQuery, AJAX
+CSS Framework: Bootstrap (via AdminLTE)
+Installation Instructions
+Prerequisites
+XAMPP/WAMP installed on your system.
+A working internet connection (for external dependencies like AdminLTE and libraries).
+Steps
+Clone the repository:
+bash
+Copy
+Edit
+git clone https://github.com/reputed_artist/your-repository.git
+Move the project to your XAMPP/WAMP htdocs directory.
+Import the database:
+Locate the .sql file in the project directory.
+Use PHPMyAdmin to import it into your database.
+Update the database connection:
+Modify the database configuration in the dbconnection.php file.
+Open the application in your browser:
+Navigate to http://localhost/adminlt.
+Screenshots
+Dashboard
 
-**AdminLTE** -- is a fully responsive admin template. Based on **[Bootstrap 3](https://github.com/twbs/bootstrap)** framework. Highly customizable and easy to use. Fits many screen resolutions from small mobile devices to large desktops. Check out the live preview now and see for yourself.
+Invoice Management
 
-**Download & Preview on [AdminLTE.IO](https://adminlte.io)**
+Reports
 
-### Looking for Premium Templates?
-**AdminLTE.IO just opened a new premium templates website. Hand picked to ensure the best quality and the most affordable prices. Visit https://themequarry.com for more information.**
+Contribution
+We welcome contributions to enhance the system! Please fork the repository and create a pull request with your changes.
 
-## Documentation & Installation Guide
-Visit the [online documentation](https://adminlte.io/docs) for the most
-updated guide.
+License
+This project is licensed under the MIT License.
 
-!["AdminLTE Presentation"](https://adminlte.io/AdminLTE2.png "AdminLTE Presentation")
+Support
+For support or queries, please contact [tc4220@gmail.com].
 
-### Contribution
-Contribution are always **welcome and recommended**! Here is how:
-
-- Fork the repository ([here is the guide](https://help.github.com/articles/fork-a-repo/)).
-- Clone to your machine ```git clone https://github.com/YOUR_USERNAME/AdminLTE.git```
-- Make your changes
-- Create a pull request
-
-#### Contribution Requirements:
-
-- When you contribute, you agree to give a non-exclusive license to AdminLTE.IO to use that contribution in any context as we (AdminLTE.IO) see appropriate.
-- If you use content provided by another party, it must be appropriately licensed using an [open source](http://opensource.org/licenses) license.
-- Contributions are only accepted through Github pull requests.
-- Finally, contributed code must work in all supported browsers (see above for browser support).
-
-### License
-AdminLTE is an open source project by [AdminLTE.IO](https://adminlte.io) that is licensed under [MIT](http://opensource.org/licenses/MIT). AdminLTE.IO
-reserves the right to change the license of future releases. Wondering what you can or can't do? View the [license guide](https://adminlte.io/docs/license).
-
-### Legacy Releases
-AdminLTE 1.x can be easily upgraded to 2.x using [this guide](https://adminlte.io/themes/AdminLTE/documentation/index.html#upgrade), but if you intend to keep using AdminLTE 1.x, you can download the latest release from the [releases](https://github.com/almasaeed2010/AdminLTE/releases) section above.
-
-### Change log
-**For the most recent change log, visit the [releases page](https://github.com/almasaeed2010/AdminLTE/releases) or the [changelog file](https://github.com/almasaeed2010/AdminLTE/blob/master/changelog.md).** We will add detailed release notes to each new release. 
-
-### Image Credits
-- [Pixeden](http://www.pixeden.com/psd-web-elements/flat-responsive-showcase-psd)
-- [Graphicsfuel](http://www.graphicsfuel.com/2013/02/13-high-resolution-blur-backgrounds/)
-- [Pickaface](http://pickaface.net/)
-- [Unsplash](https://unsplash.com/)
-- [Uifaces](http://uifaces.com/)
-
-### Donations
-Donations are **greatly appreciated!**
-
-[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif "AdminLTE Presentation")](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=629XCUSXBHCBC "Donate")
+This now includes IGST and local tax management for clients and suppliers. Let me know if you'd like further adjustments!
