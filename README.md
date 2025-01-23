@@ -72,7 +72,7 @@
 
 ## Login Details
  - **Email:** Admin@gmail.com
- - **Password** Admin@123
+ - **Password:** Admin@123
   
 ## Screenshots
 
