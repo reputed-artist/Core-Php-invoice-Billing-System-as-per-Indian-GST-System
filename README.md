@@ -70,6 +70,10 @@
       ```
       http://localhost/Adminlt
 
+## Login Details
+ - **Email:** Admin@gmail.com
+ - **Password** Admin@123
+  
 ## Screenshots
 
 ![Screenshot 1](path/to/screenshot1.png)
