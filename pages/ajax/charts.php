@@ -123,12 +123,12 @@ $result8 = $con->query($query8);
 $data8 = array();
 
 while ($row = $result8->fetch_assoc()) {
-    $data8[] = array("name" => $row['PI'],"value" => $row['Count']);
+    $data8[] = array("label" => $row['PI'],"value" => $row['Count']);
 }
 
 
 
-$query9 = "SELECT ROW_NUMBER() OVER () AS id, protest.item_name AS item, protest2.invid AS `invno`, protest2.created AS `inv date`, client.c_name AS client, SUBSTRING_INDEX(client.c_add, ',', -1) AS location, client.mob AS mob, client.c_type AS c_type, protest2.subtotal AS subtotal, protest2.taxrate AS taxrate, protest2.taxamount AS taxamount, protest2.totalamount AS totalamount FROM protest2 INNER JOIN protest ON protest.orderid = protest2.orderid INNER JOIN client ON protest2.cid = client.cid GROUP BY protest.orderid ORDER BY protest2.created DESC limit 6";
+$query9 = "SELECT ROW_NUMBER() OVER () AS id, protest.item_name AS item, protest2.invid AS `invno`, protest2.created AS `inv date`, client.c_name AS client, SUBSTRING_INDEX(client.c_add, ',', -1) AS location, client.mob AS mob, client.c_type AS c_type, protest2.subtotal AS subtotal, protest2.taxrate AS taxrate, protest2.taxamount AS taxamount, protest2.totalamount AS totalamount FROM protest2 INNER JOIN protest ON protest.orderid = protest2.orderid INNER JOIN client ON protest2.cid = client.cid GROUP BY protest.orderid ORDER BY protest2.created DESC limit 7";
 
 $result9 = $con->query($query9);
 
@@ -138,6 +138,29 @@ while ($row = $result9->fetch_assoc()) {
     $data9[] =$row;
 }
 
+
+$query10 = "SELECT 
+    DISTINCT LOWER(TRIM(SUBSTRING_INDEX(client.c_add, ',', -1))) AS location, 
+    COUNT(*) AS count 
+FROM 
+    invtest 
+INNER JOIN 
+    invtest2 ON invtest.orderid = invtest2.orderid 
+INNER JOIN 
+    client ON invtest2.cid = client.cid 
+GROUP BY 
+    location
+ORDER BY 
+    count DESC 
+LIMIT 15";
+
+$result10 = $con->query($query10);
+
+$data10 = array();
+
+while ($row = $result10->fetch_assoc()) {
+    $data10[] =$row;
+}
 
 
 // Combine data into a single array
@@ -152,6 +175,7 @@ $combinedData = array(
     'pie5' => $data7,
      'pie6' => $data8, 
      'tbdata'=>$data9,  
+     'areadata'=>$data10,
 );
 
 // Convert the combined data to JSON

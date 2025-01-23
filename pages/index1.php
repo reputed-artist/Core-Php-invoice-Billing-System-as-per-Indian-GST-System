@@ -83,6 +83,7 @@ $invval=mysqli_fetch_array($invtotal);
    
   <?php include_once "links.php"; ?>
   <!-- Morris chart -->
+  <link rel="stylesheet" type="text/css" href="../dist/css/stylefortimer.css">
   <link rel="stylesheet" href="../bower_components/morris.js/morris.css">
   
 
@@ -98,7 +99,8 @@ $invval=mysqli_fetch_array($invtotal);
 <script src="../bower_components/morris.js/morris.min.js"></script>
 
 <!-- <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script> -->
-  <script src="../bower_components/echarts/dist/echarts.min.js"></script>
+<!--   <script src="../bower_components/echarts/dist/echarts.min.js"></script> -->
+<script src="../bower_components/apexcharts/dist/apexcharts.min.js"></script>
 
 
 <script src="../bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
@@ -364,7 +366,8 @@ $invval=mysqli_fetch_array($invtotal);
       
       <!-- /.row (main row) -->
       </div>
-        <div class="col-md-3 box-body" style="margin-top: -10px;padding-right: 16px;">
+    
+       <div class="col-md-3" >
           
           <!-- BAR CHART -->
           <div class="box box-info" style="height: 350px;">
@@ -387,29 +390,38 @@ $invval=mysqli_fetch_array($invtotal);
         </div>     
 
 
-         <div class="col-md-3 box-body" style="margin-top: -20px;padding-right: 16px;">
-          
-          <!-- BAR CHART -->
-          <div class="box box-info" style="height: 250px;">
-            <div class="box-header with-border">
-              <h3 class="box-title">Performance</h3>
+
+<div class="col-md-3 timer" >
+    <div class="box box-info">
+          <div class="box-header with-border">
+              <h3 class="box-title"> Timer </h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
                 <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
               </div>
-            </div>
-            <div class="box-body chart-responsive">
-              <div id='speedometer' class='chart_morris' style="height: 250px;" style="margin-top: -10px"></div>
-            <!-- <div id='chart_pie_3_legend' class='text-center'></div> -->
-            </div>
-            <!-- /.box-body -->
-          </div>
-            <!-- /.box -->
-        </div>       
 
-   
+            </div>
+
+      <div class="timeDiv">
+        <span class="font-color" id="time"></span>
+        <span class="font-color" id="sec"></span>
+        <span class="font-color" id="med"></span>
+      </div>
+      <div class="dayDiv">
+        <span class="font-color day">SUN</span>
+        <span class="font-color day">MON</span>
+        <span class="font-color day">TUE</span>
+        <span class="font-color day">WED</span>
+        <span class="font-color day">THU</span>
+        <span class="font-color day">FRI</span>
+        <span class="font-color day">SAT</span>
+      </div>
+      <span class="font-color" id="full-date"></span>
+    </div>
+
+   </div>
 
 
   
@@ -418,7 +430,7 @@ $invval=mysqli_fetch_array($invtotal);
 
 <div class="row">
   
-      <div class="col-md-3 box-body box-body">  
+      <div class="col-md-3">  
 
               <div class="box box-info" style="height: 350px;">
             <div class="box-header with-border">
@@ -440,7 +452,7 @@ $invval=mysqli_fetch_array($invtotal);
 
       </div>
  
-      <div class="col-md-3 box-body">
+      <div class="col-md-3">
           
           <!-- BAR CHART -->
           <div class="box box-info" style="height: 350px;">
@@ -465,7 +477,7 @@ $invval=mysqli_fetch_array($invtotal);
 
      
        
-       <div class="col-md-3 box-body">
+       <div class="col-md-3">
           
           <!-- BAR CHART -->
           <div class="box box-info" style="height: 350px;">
@@ -489,7 +501,7 @@ $invval=mysqli_fetch_array($invtotal);
 
 
      
-         <div class="col-md-3 box-body" style="padding-right: 16px;">
+         <div class="col-md-3" style="padding-right: 16px;">
           
           <div class="box box-info" style="height: 350px; ">
             <div class="box-header with-border">
@@ -513,7 +525,7 @@ $invval=mysqli_fetch_array($invtotal);
 
 
 
-        <div class="col-md-8">
+        <div class="col-md-9">
           <div class="box box-info" style="overflow: auto;">
             <div class="box-header with-border">
               <h3 class="box-title">Reminder for Clients</h3>
@@ -535,42 +547,81 @@ $invval=mysqli_fetch_array($invtotal);
 
           </div> 
           </div>    
+
+
+
+         <div class="col-md-3">
           
-          <div class="col-md-4">
+          <div class="box box-info" style="height: 350px; ">
+            <div class="box-header with-border">
+              <h3 class="box-title">Doc. Count of Year</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <div class="box-body chart-responsive">
+              <div id='chart_pie_6' class='chart_morris' style="height: 230px;"></div>
+            <div id='chart_pie_6_legend' class='text-center'></div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+            <!-- /.box -->
+        </div>       
+
+          
+      <!--     <div class="col-md-4">
           <div class="box box-solid bg-green-gradient">
             <div class="box-header">
               <i class="fa fa-calendar"></i>
 
               <h3 class="box-title">Calendar</h3>
-              <!-- tools box -->
+      
               <div class="pull-right box-tools">
-                <!-- button with a dropdown -->
+    
                 <div class="btn-group">
-                  <!-- <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown"> -->
-                    <!-- <i class="fa fa-bars"></i></button>
-                  <ul class="dropdown-menu pull-right" role="menu">
-                    <li><a href="#">Add new event</a></li>
-                    <li><a href="#">Clear events</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">View calendar</a></li>
-                  </ul> -->
+
                 </div>
                 <button type="button" class="btn btn-success btn-sm" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
                 <button type="button" class="btn btn-success btn-sm" data-widget="remove"><i class="fa fa-times"></i>
                 </button>
               </div>
-              <!-- /. tools -->
+  
             </div>
-            <!-- /.box-header -->
+      
             <div class="box-body no-padding">
-              <!--The calendar -->
+    
               <div id="calendar" style="width: 100%"></div>
             </div>
-            <!-- /.box-body -->
+      
   
           </div>
-          </div>  
+          </div>   -->
+
+      <div class="col-md-6 box-body">
+          <div class="box box-info" style="height: 425px">
+            <div class="box-header with-border">
+              <h3 class="box-title"> Location Tree Data Chart</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+
+            </div>
+                <div class="box-body chart-responsive" style="margin-top: -15px;">
+                   <div class="chart" id="ebar-chart-tree" style="height: 400px;"></div>
+                </div>
+            <!-- /.box-body -->
+          </div>
+            <!-- /.box -->
+        </div>       
+
+  
 
       <div class="col-md-6 box-body">
           <div class="box box-info" style="height: 425px">
@@ -593,103 +644,9 @@ $invval=mysqli_fetch_array($invtotal);
             <!-- /.box -->
         </div>       
 
-  
 
 
-      <div class="col-md-3 box-body">
-          <div class="box box-info" style="height: 425px">
-            <div class="box-header with-border">
-              <h3 class="box-title"> Comm. Doc. Chart in FY</h3>
-
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-              </div>
-
-            </div>
-                <div class="box-body chart-responsive" style="padding: 3px 5px 5px 5px">
-            </br>              </br>
-                   <div class="chart" id="ebar-funnel" style="height: 370px;"></div>
-               </div>
-            <!-- /.box-body -->
-          </div>
-            <!-- /.box -->
-        </div>       
-
-
-        
-<!-- 
-       <div class="col-md-3 box-body" style="padding-right: 16px;">
-          
-         
-          <div class="box box-info" style="height: 425px;">
-            <div class="box-header with-border">
-              <h3 class="box-title">Count of Pro/Tax invoice in FY </h3>
-
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-              </div>
-            </div>
-            <div class="box-body chart-responsive">
-              <div id='main' class='chart_morris' style="height: 300px;"></div>
-            <div id='chart_pie_6_legend' class='text-center'></div>
-            </div>
-        
-          </div>
-         
-        </div>       
-
- -->
-
-
-    
-
-
-<!-- 
-      <div class="col-md-6 box-body">
-          <div class="box box-info" style="height: 425px">
-            <div class="box-header with-border">
-              <h3 class="box-title"> Annual  Data Chart</h3>
-
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-              </div>
-
-            </div>
-                <div class="box-body chart-responsive">
-            </br>              </br>
-                   <div class="chart" id="ebar-chart" style="height: 400px;"></div>
-                </div>
-            
-          </div>
-           
-        </div>    -->    
-
-<!-- 
-            <div class="row col-md-6" style="margin-top: 10px">      
-             <div class="nav-tabs-custom">
-                
-                <ul class="nav nav-tabs pull-right">
-                  <li class="active"><a href="#revenue-chart" data-toggle="tab">Area</a></li>
-                  <li><a href="#sales-chart" data-toggle="tab">Donut</a></li>
-                  <li class="pull-left header"><i class="fa fa-inbox"></i> Sales</li>
-                </ul>
-                <div class="tab-content no-padding">
-
-                  <div class="chart tab-pane active" id="revenue-chart" style="height: 300px;"></div>
-                  <div class="chart tab-pane" id="sales-chart" style="height: 300px;"></div>
-                </div>
-              </div>
-
-          </div>
-
- -->
-
+ 
 
          </div><!-- </section> -->
 
@@ -742,6 +699,8 @@ $('#calendar').datepicker();
             var pie6Data = data.pie6;
 
             var tbdata=data.tbdata;
+
+            var areadata=data.areadata;
 
             var x = Morris.Bar({
             element: 'bar-chart',
@@ -957,6 +916,21 @@ $('#calendar').datepicker();
                   });   // Repeat similar logic for other charts
 
 
+                   Morris.Donut({
+                    element: 'chart_pie_6',
+                    data:pie6Data,
+                    resize:true,    
+                    dataLabels: true,
+                    showPercentage: true,
+                    //dataLabelsPosition: 'outside',
+                  }).options.colors.forEach(function(color, d){ 
+                    if (pie6Data[d] != undefined) {
+                      var node = document.createElement('span');
+                      node.innerHTML += '<span style="color:'+color+'"><i style="margin-left: 15px;" class="fas fa-square"></i> '+pie6Data[d].label+'</span>';
+                      document.getElementById("chart_pie_6_legend").appendChild(node);
+                    }
+                  });  
+
                   var bar = new Morris.Bar({
                   element: 'bar-chart3',
                   resize: true,
@@ -1010,318 +984,116 @@ $('#calendar').datepicker();
 
               })
 
-
-        //       var option = {
-        //     tooltip: {
-        //         trigger: 'item'
-        //     },
-        //     legend: {
-        //         top: '90%',
-        //         x: 'center',
-        //         y: 'bottom',
-        
-        //         // left: 'center',
-        //        // top: 'bottom', // Move the legend to the bottom
-        // //left: 'center',
-        // type: 'scroll', // Enable scrolling for the legend
-        // itemGap: 10 // Reduce the gap between legend items
-
-        //     },
-        //     series: [
-        //         {
-        //             name: 'Access From',
-        //             type: 'pie',
-        //             radius: ['40%', '70%'],
-        //             avoidLabelOverlap: true,
-        //             padAngle: 5,
-        //             itemStyle: {
-        //                 borderRadius: 10
-        //             },
-        //             label: {
-        //                 show: true,
-        //                 position: 'center'
-        //             },
-        //             emphasis: {
-        //                 label: {
-        //                     show:false,
-        //                     fontSize: 40,
-        //                     fontWeight: 'bold'
-        //                 }
-        //             },
-        //             labelLine: {
-        //                 show: true
-        //             },
-        //             data: [
-        //                 { value: 1048, name: 'Search Engine' },
-        //                 { value: 735, name: 'Direct' },
-        //                 { value: 580, name: 'Email' },
-        //                 { value: 484, name: 'Union Ads' },
-        //                 { value: 300, name: 'Video Ads' }
-        //             ]
-        //         }
-        //     ]
-        // };
-
-        // // Initialize the chart
-        // var chartDom = document.getElementById('main');
-        // var myChart = echarts.init(chartDom);
-        // myChart.setOption(option);  
+       let areaChartData = [];
+        areadata.forEach(function(item) {
+           let locationParts = item.location.split('-');
+            let city = locationParts[0].trim(); // Get the left side (city)
+            let count = item.count; // This will be the y value
+            console.log(`x: ${city}, y: ${count}`);
+            areaChartData.push({ x: city, y: count });
+            //console.log(`x: ${item.location}, y: ${item.count}`);
+        });
 
 
-
-        let xAxisData = [];
-let data1 = [];
-let data2 = [];
-let data3 = [];
-let data4 = [];
-for (let i = 0; i < 10; i++) {
-  xAxisData.push('Class' + i);
-  data1.push(+(Math.random() * 2).toFixed(2));
-  data2.push(+(Math.random() * 5).toFixed(2));
-  data3.push(+(Math.random() + 0.3).toFixed(2));
-  data4.push(+Math.random().toFixed(2));
-}
-var emphasisStyle = {
-  itemStyle: {
-    shadowBlur: 10,
-    shadowColor: 'rgba(0,0,0,0.3)'
-  }
-};
-option = {
-  legend: {
-    data: ['bar', 'bar2', 'bar3', 'bar4'],
-    left: '10%'
-  },
-  brush: {
-    toolbox: ['rect', 'polygon', 'lineX', 'lineY', 'keep', 'clear'],
-    xAxisIndex: 0
-  },
-  toolbox: {
-    feature: {
-      magicType: {
-        type: ['stack']
-      },
-      dataView: {}
-    }
-  },
-  tooltip: {},
-  xAxis: {
-    data: xAxisData,
-    name: 'X Axis',
-    axisLine: { onZero: true },
-    splitLine: { show: false },
-    splitArea: { show: false }
-  },
-  yAxis: {},
-  grid: {
-    bottom: 100
-  },
+var options = {
   series: [
     {
-      name: 'bar',
-      type: 'bar',
-      stack: 'one',
-      emphasis: emphasisStyle,
-      data: data1
+     
+          data: areaChartData,
+      
     },
-    {
-      name: 'bar2',
-      type: 'bar',
-      stack: 'one',
-      emphasis: emphasisStyle,
-      data: data2
-    },
-    {
-      name: 'bar3',
-      type: 'bar',
-      stack: 'two',
-      emphasis: emphasisStyle,
-      data: data3
-    },
-    {
-      name: 'bar4',
-      type: 'bar',
-      stack: 'two',
-      emphasis: emphasisStyle,
-      data: data4
-    }
-  ]
-};
-myChart.on('brushSelected', function (params) {
-  var brushed = [];
-  var brushComponent = params.batch[0];
-  for (var sIdx = 0; sIdx < brushComponent.selected.length; sIdx++) {
-    var rawIndices = brushComponent.selected[sIdx].dataIndex;
-    brushed.push('[Series ' + sIdx + '] ' + rawIndices.join(', '));
-  }
-  myChart.setOption({
-    title: {
-      backgroundColor: '#333',
-      text: 'SELECTED DATA INDICES: \n' + brushed.join('\n'),
-      bottom: 0,
-      right: '10%',
-      width: 100,
-      textStyle: {
-        fontSize: 12,
-        color: '#fff'
-      }
-    }
-  });
-});
-
-var chartDom = document.getElementById('ebar-chart');
-        var myChart = echarts.init(chartDom);
-        myChart.setOption(option);
-
-
-
-        option = {
-  // title: {
-  //   //text: 'Funnel'
-  // },
-  tooltip: {
-    trigger: 'item',
-    formatter: function (params) {
-                    return params.name + ': ' + params.data.value; // Change this line to format the tooltip as needed
-                }
-  },
-  toolbox: {
-    // feature: {
-    //   dataView: { readOnly: false },
-    //   restore: {},
-    //   saveAsImage: {}
-    // }
-  },
+  ],
   legend: {
-    data: ['Proforma Invoice', 'Quotation', 'Tax Invoice', 'Quick Quotation']
+    show: false,
   },
-  series: [
-    {
-      name: 'Funnel',
-      type: 'funnel',
-      left: '10%',
-      top: 60,
-      bottom: 60,
-      width: '80%',
-      min: 0,
-      max: 100,
-      minSize: '0%',
-      maxSize: '100%',
-      sort: 'descending',
-      gap: 2,
-      label: {
-        show: true,
-        position: 'inside'
-      },
-      labelLine: {
-        length: 10,
-        lineStyle: {
-          width: 1,
-          type: 'solid'
-        }
-      },
-      itemStyle: {
-        borderColor: '#fff',
-        borderWidth: 1
-      },
-      emphasis: {
-        label: {
-          fontSize: 20
-        }
-      },
-      data: pie6Data,//[ 
-        // { value: 60, name: 'Visit' },
-        // { value: 40, name: 'Inquiry' },
-        // { value: 20, name: 'Order' },
-        // { value: 80, name: 'Click' },
-        // { value: 100, name: 'Show' }
-      //]
-    }
-  ]
+  chart: {
+    height: 360,
+    type: "treemap",
+    toolbar: {
+      show: false, // Disable the toolbar
+    },
+  },
+  title: {
+    // text: 'Distributed Treemap (different color for each cell)',
+    align: "center",
+  },
+  colors: [
+    "#3B93A5",
+    "#F7B844",
+    "#ADD8C7",
+    "#EC3C65",
+    "#CDD7B6",
+    "#C1F666",
+    "#D43F97",
+    "#1E5D8C",
+    "#421243",
+    "#7F94B0",
+    "#EF6537",
+    "#C0ADDB",
+  ],
+  plotOptions: {
+    treemap: {
+      distributed: true,
+      enableShades: false,
+    },
+  },
 };
 
-var chartDom = document.getElementById('ebar-funnel');
-        var myChart = echarts.init(chartDom);
-        myChart.setOption(option);
+var chart = new ApexCharts(document.querySelector("#ebar-chart-tree"), options);
+chart.render();
 
 
 
-var myChart = echarts.init(document.getElementById('speedometer'));
 
-  // Define the option for the gauge chart
-  var option = {
-    series: [
-      {
-        type: 'gauge',
-        axisLine: {
-          lineStyle: {
-            width: 30,
-            color: [
-              [0.3, '#67e0e3'],
-              [0.7, '#37a2da'],
-              [1, '#fd666d']
-            ]
-          }
-        },
-        pointer: {
-          itemStyle: {
-            color: 'auto'
-          }
-        },
-        axisTick: {
-          distance: -30,
-          length: 8,
-          lineStyle: {
-            color: '#fff',
-            width: 2
-          }
-        },
-        splitLine: {
-          distance: -30,
-          length: 30,
-          lineStyle: {
-            color: '#fff',
-            width: 4
-          }
-        },
-        axisLabel: {
-          color: 'inherit',
-          distance: 40,
-          fontSize: 8
-        },
-        detail: {
-          valueAnimation: true,
-          formatter: '{value} km/h',
-          color: 'inherit',
-          fontSize:10,
-        },
-        data: [
-          {
-            value: 70
-          }
-        ]
-      }
-    ]
-  };
-
-  // Set the option for the chart
-  myChart.setOption(option);
-
-  // Update the chart data every 2 seconds
-  setInterval(function () {
-    myChart.setOption({
-      series: [
-        {
-          data: [
-            {
-              value: +(Math.random() * 100).toFixed(2)
-            }
-          ]
-        }
-      ]
-    });
-  }, 2000);
-
+    function currentTime() {
+    var date = new Date();
+    var day = date.getDay();
+    var hour = date.getHours();
+    var min = date.getMinutes();
+    var sec = date.getSeconds();
+    var month = date.getMonth();
+    var currDate = date.getDate();
+    var year = date.getFullYear();
+    var monthName = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    var showDay = $('.dayDiv span')
+    var midDay= "AM"
+    midDay = (hour>=12)? "PM":"AM";
+    hour = (hour==0)?12:((hour<12)? hour:(hour-12));
+    hour = updateTime(hour);
+    min = updateTime(min);
+    sec = updateTime(sec);
+    currDate= updateTime(currDate);
+    $("#time").html(`${hour}:${min}`);
+    $("#sec").html(`${sec}`);
+    $("#med").html(`${midDay}`);
+    $("#full-date").html(`${monthName[month]} ${currDate} ${year}`);
+    showDay.eq(day).css('opacity','1')
+  }
+  updateTime = function(x){
+    if(x<10){
+      
+      return "0"+x
+    }
+    else{
+      
+      return x;
+    }
+    
+  }
+  setInterval(currentTime,1000);
 
 
         },
